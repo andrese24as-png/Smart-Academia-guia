@@ -1,0 +1,1307 @@
+/* ======================================================= 
+ 🎨 PROYECTO: AulaBot - Diseño Web
+ Autores: Juliana y Andrés
+ Descripción: Estilos en tonos pasteles, limpios y modernos.
+ Organización: Estilos organizados por páginas
+========================================================== */
+
+/*
+  TABLA DE CONTENIDOS
+  ==================
+  1. Variables y Configuración Global
+  2. Componentes Comunes
+     - Header
+     - Footer
+     - Navegación
+     - Botón Social Flotante
+  3. Páginas
+     - Index
+     - Nosotros
+     - Cursos
+     - Inicio de Sesión
+     - Estudiante
+     - Administrativo
+  4. Media Queries
+*/
+
+/* =================== 1. VARIABLES Y CONFIGURACIÓN GLOBAL =================== */
+/* --- Variables de Color --- */
+:root {
+  --color-principal: #a8dadc;     /* Azul pastel principal */
+  --color-secundario: #f9c6c9;    /* Rosa pastel */
+  --color-acento: #ffd6a5;        /* Durazno pastel */
+  --color-fondo: #fffdfb;         /* Fondo cálido */
+  --color-texto: #333333;         /* Texto principal */
+  --color-blanco: #ffffff;        /* Blanco puro */
+  --color-hover: #bde0fe;         /* Hover */
+  --color-sombra: rgba(0, 0, 0, 0.1); /* Sombras */
+}
+
+/* --- Estilos Base --- */
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;              /* 1rem = 10px */
+  scroll-behavior: smooth;        /* Scroll suave */
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* 🎯 FUENTE PRINCIPAL: Poppins */
+  font-family: Poppins, system-ui, sans-serif;
+  font-size: 1.6rem;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =================== 2. COMPONENTES COMUNES =================== */
+/* --- Header --- */
+header {
+  background: linear-gradient(135deg, #85191A 0%, #D93036 100%);
+  box-shadow: 0 4px 10px var(--color-sombra);
+  padding: 2rem 0;
+}
+
+.contenedor-header {
+  max-width: 120rem;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 2rem;
+}
+
+/* Título principal del encabezado */
+/* ===== TÍTULO DE SERVICIOS MAGISTRAL ===== */
+.titulo-servicios {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 2rem 0;
+    background: linear-gradient(90deg, #000000, #000000, #000000);
+    background-size: 300%;
+    background-clip: text;
+    -webkit-background-clip: text; 
+    color: transparent;
+    -webkit-text-fill-color: transparent; 
+    animation: colorMove 5s ease-in-out infinite;
+    letter-spacing: 2px;
+}
+
+
+/* Animación suave del degradado */
+@keyframes colorMove {
+    0% { background-position: 0%; }
+    50% { background-position: 100%; }
+    100% { background-position: 0%; }
+}
+
+.titulo {
+  font-size: 3rem;         /* Tamaño grande del título */
+  color: rgb(220 38 38); /* 🔴 Rojo brillante */
+  margin-bottom: 1rem;     /* Espacio inferior respecto al siguiente elemento */
+  font-weight: 700;        /* Negrita para destacar el título */
+}
+
+/* Estilo del span dentro del título (palabra destacada) */
+.titulo span {
+  color: var(--color-blanco);         /* Texto blanco */
+  background-color: rgb(188 42 44); /* 🔴 Fondo rojo oscuro */
+  padding: 0.3rem 0.8rem;             /* Espaciado interno */
+  border-radius: 10px;                /* Bordes redondeados */
+}
+
+/* ================= BARRA DE NAVEGACIÓN ================= */
+.barra-navegacion {
+  display: flex;               /* Activa el modo flexible para organizar los elementos */
+  justify-content: center;     /* Centra los enlaces horizontalmente */
+  align-items: center;         /* Alinea verticalmente los elementos */
+  flex-wrap: wrap;             /* Permite que los elementos bajen si no caben en la fila */
+  gap: 2rem;                   /* Espacio entre elementos */
+  margin-top: 1.5rem;          /* Separación superior respecto al título */
+}
+
+/* Logo institucional */
+.logo h2 {
+  font-size: 2rem;            /* Tamaño del texto del logo */
+  margin: 0;                  /* Quita márgenes predeterminados */
+  color: var(--color-texto);  /* Aplica el color del texto principal */
+  transition: transform 0.3s ease; /* Transición suave para el efecto hover */
+}
+
+/* Color del span dentro del logo (resaltado) */
+.logo span {
+  color: var(--color-secundario); /* Rosa pastel */
+}
+
+/* Efecto al pasar el ratón sobre el logo */
+.logo:hover h2 {
+  transform: scale(1.05); /* Aumenta ligeramente el tamaño del texto */
+}
+
+/* Navegación principal */
+.navegacion-principal {
+  display: flex;        /* Modo flexible */
+  gap: 2rem;            /* Espaciado entre los enlaces */
+  flex-wrap: wrap;      /* Permite que los enlaces bajen si no caben */
+}
+
+/* Enlaces del menú de navegación */
+.navegacion-principal a {
+  text-decoration: none;           /* Quita el subrayado de los enlaces */
+  color: var(--color-texto);       /* Aplica el color del texto principal */
+  font-weight: 600;                /* Texto seminegrita */
+  /* 🎨 BOTÓN NAVEGACIÓN - Color: Rojo rgb(220 38 38) */
+  background-color: rgb(220 38 38); /* 🔴 Rojo brillante */
+  padding: 1rem 2rem;              /* Espaciado interno del botón */
+  border-radius: 25px;             /* Bordes redondeados tipo “píldora” */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Sombra ligera */
+  transition: all 0.3s ease;       /* Transiciones suaves para color y movimiento */
+}
+
+/* Efecto al pasar el ratón por encima */
+.navegacion-principal a:hover {
+  /* 🎨 BOTÓN NAVEGACIÓN HOVER - Color: Rojo oscuro */
+  background-color: rgb(159 18 18); /* 🔴 Rojo más oscuro */
+  color: var(--color-texto);            /* Mantiene el color de texto */
+  transform: translateY(-3px);          /* Eleva ligeramente el botón */
+}
+
+/* ================= SECCIÓN PRINCIPAL ================= */
+main {
+  max-width: 100rem;                 /* Limita el ancho máximo del contenido (1000px) */
+  margin: 10rem auto;                 /* Centra horizontalmente y agrega espacio vertical */
+  padding: 2rem;                     /* Espaciado interno */
+  background-color: var(--color-blanco); /* Fondo blanco */
+  border-radius: 20px;               /* Bordes redondeados */
+  box-shadow: 0 4px 12px rgba(211, 188, 61, 0.08); /* Sombra suave para destacar el bloque */
+}
+
+/* Títulos principales dentro del main */
+main h2 {
+  text-align: center;            /* Centra el texto */
+  color: rgb(220 38 38);/* 🔴 Rojo brillante */
+  font-size: 2.5rem;             /* Tamaño grande */
+  margin-bottom: 2rem;           /* Separación con el contenido siguiente */
+}
+
+/* Subtítulos */
+main h3 {
+  color: rgb(220 38 38); /* 🔴 Rojo brillante */
+  font-size: 2rem;               /* Tamaño medio */
+  margin-bottom: 1rem;           /* Separación inferior */
+}
+
+/* ================= PIE DE PÁGINA ================= */
+footer {
+  background-color: rgb(188 42 44); /* 🔴 Fondo rojo oscuro */
+  color: var(--color-texto);                 /* Texto gris oscuro */
+  text-align: center;                        /* Centra el texto */
+  padding: 2rem;                             /* Espaciado interno */
+  margin-top: 5rem;                          /* Separación con el contenido principal */
+  border-top: 2px solid rgb(220 38 38); /* 🔴 Línea superior decorativa en rojo brillante */
+}
+
+/* Texto del pie de página */
+footer p {
+  margin: 0;             /* Elimina márgenes por defecto */
+  font-size: 1.4rem;     /* Tamaño de texto más pequeño */
+}
+
+/* ================= RESPONSIVIDAD ================= */
+@media (max-width: 768px) { /* Aplica estilos cuando la pantalla tiene menos de 768px de ancho */
+  
+  .titulo {
+    font-size: 2.4rem;   /* Reduce el tamaño del título */
+  }
+
+  .barra-navegacion {
+    flex-direction: column; /* Coloca los elementos uno debajo del otro */
+    gap: 1rem;              /* Reduce el espacio entre ellos */
+  }
+
+  .navegacion-principal {
+    flex-direction: column; /* Menú vertical en móviles */
+    gap: 1rem;
+  }
+
+  .navegacion-principal a {
+    width: 80%;             /* Los botones ocupan el 80% del ancho */
+    text-align: center;     /* Centra el texto dentro del botón */
+  }
+
+  main {
+    margin: 3rem 1rem;      /* Reduce los márgenes laterales */
+    padding: 2rem;          /* Mantiene buen espaciado interno */
+  }
+}
+/* ================= SECCIÓN DE CONTACTO ================= */
+.contacto {
+  max-width: 90rem;
+  margin: 6rem auto;
+  padding: 4rem 3rem;
+  background: linear-gradient(135deg, #85191A 0%, #D93036 100%);
+  border-radius: 25px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  color: var(--color-texto);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efecto decorativo de luz difusa */
+.contacto::before {
+  content: "";
+  position: absolute;
+  bottom: -60px;
+  right: -60px;
+  width: 200px;
+  height: 200px;
+  background: rgb(188 42 44);
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.6;
+}
+
+/* Título principal */
+.contacto h2 {
+  font-size: 3rem;
+  color: rgb(0, 0, 0); /* 🔴 Rojo brillante */
+  margin-bottom: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  animation: aparecer 1.2s ease forwards;
+}
+
+/* Formulario general */
+form {
+  background-color: var(--color-blanco);
+  border-radius: 20px;
+  padding: 3rem 4rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  animation: aparecer 1.5s ease forwards;
+}
+
+/* Título del formulario */
+legend {
+  font-size: 1.8rem;
+  color: rgb(220 38 38); /* 🔴 Rojo brillante */
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Etiquetas */
+label {
+  display: block;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  color: var(--color-texto);
+}
+
+/* Campos de texto y área de mensaje */
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 1.2rem 1.5rem;
+  border-radius: 15px;
+  border: 2px solid var(--color-principal);
+  margin-top: 0.8rem;
+  font-size: 1.6rem;
+  /* 🔤 FUENTE: Poppins */
+  font-family: Poppins, system-ui, sans-serif;
+  background-color: #fffdfb;
+  transition: all 0.3s ease;
+  resize: none;
+}
+
+/* Efecto al enfocar los campos */
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-acento);
+  box-shadow: 0 0 10px rgba(255, 214, 165, 0.5);
+}
+
+/* 🎨 BOTÓN ENVIAR - Color: Rojo rgb(220 38 38) */
+.boton.enviar {
+  display: block;
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 1.2rem;
+  font-size: 1.7rem;
+  font-weight: 600;
+  background-color: rgb(220 38 38); /* 🔴 Rojo brillante */
+  color: var(--color-texto);
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Efecto hover del botón */
+.boton.enviar:hover {
+  background-color: rgb(159 18 18); /* 🔴 Rojo más oscuro */
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Animación de aparición */
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= RESPONSIVIDAD ================= */
+@media (max-width: 768px) {
+  .contacto {
+    padding: 3rem 2rem;
+    margin: 4rem 1rem;
+  }
+
+  form {
+    padding: 2rem;
+  }
+
+  .contacto h2 {
+    font-size: 2.4rem;
+  }
+
+  legend {
+    font-size: 1.6rem;
+  }
+
+  input, textarea {
+    font-size: 1.5rem;
+  }
+}
+/* Los estilos base ya están definidos en la sección ESTILOS GENERALES */
+
+/* ==== GALERÍA ==== */
+.gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #85191A 0%, #D93036 100%);
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  justify-content: center;
+}
+
+/* ==== TARJETAS ==== */
+.container li {
+  position: relative;
+  width: 280px;
+  height: 380px;
+  overflow: hidden;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 1.2px solid #eee;
+  box-shadow: 5px 10px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease-in-out;
+  flex: 1 1 250px; /* Flexible para móviles */
+}
+
+.container li:hover {
+  transform: scale(1.05);
+}
+
+.container li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease;
+}
+
+/* ==== TEXTO SOBRE IMAGEN ==== */
+.content {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  color: #ffffff;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  text-align: center;
+}
+
+.container li:hover .content {
+  opacity: 1;
+}
+
+.content h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.content p {
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 600px) {
+  .container {
+    gap: 15px;
+  }
+
+  .container li {
+    width: 100%;
+    height: 300px;
+  }
+
+  .content h2 {
+    font-size: 1.2rem;
+  }
+
+  .content p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding: 10px;
+  }
+
+  .content h2 {
+    font-size: 1rem;
+  }
+
+  .content p {
+    font-size: 0.7rem;
+  }
+}
+
+
+/* Los estilos del header ya están definidos en la sección de ENCABEZADO */
+
+.navegacion-principal a:hover {
+  /* 🎨 BOTÓN NAVEGACIÓN HOVER - Color: Rojo oscuro */
+  background-color: rgb(159 18 18); /* 🔴 Rojo más oscuro */
+  color: var(--color-texto);
+  transform: translateY(-3px);
+}
+
+main {
+  max-width: 100rem;
+  margin: 10rem auto;
+  padding: 2rem;
+  background-color: var(--color-blanco);
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(211, 188, 61, 0.08);
+  text-align: center;
+}
+
+main h2 {
+  text-align: center;
+  color: rgb(220 38 38); /* 🔴 Rojo brillante */
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+main h3 {
+  color: rgb(220 38 38); /* 🔴 Rojo brillante */
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.bienvenida p {
+  font-size: 1.7rem;
+  margin-bottom: 3rem;
+}
+
+.roles {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1.2rem 3rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.pastel-rosa {
+  /* 🎨 BOTÓN ROSA PASTEL - Color: Rojo rgb(220 38 38) */
+  background-color: rgb(220 38 38); /* 🔴 Rojo brillante */
+  color: var(--color-texto);
+}
+
+.pastel-rosa:hover {
+  background-color: rgb(159 18 18);
+  transform: translateY(-3px);
+}
+
+.pastel-azul {
+  /* 🎨 BOTÓN AZUL PASTEL - Color: Rojo rgb(220 38 38) */
+  background-color: rgb(220 38 38); /* 🔴 Rojo brillante */
+  color: var(--color-texto);
+}
+
+.pastel-azul:hover {
+  background-color: rgb(159 18 18); /* 🔴 Rojo más oscuro */
+  transform: translateY(-3px);
+}
+
+/* ================= PIE DE PÁGINA ================= */
+footer {
+  background-color: rgb(188 42 44); /* 🔴 Fondo rojo oscuro */
+  color: var(--color-texto);
+  text-align: center;
+  padding: 2rem;
+  margin-top: 5rem;
+  border-top: 2px solid rgb(220 38 38); /* 🔴 Línea superior en rojo brillante */
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
+}
+
+footer p {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .titulo {
+    font-size: 2.4rem;
+  }
+
+  .barra-navegacion {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .navegacion-principal {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .navegacion-principal a {
+    width: 80%;
+    text-align: center;
+  }
+
+  main {
+    margin: 3rem 1rem;
+    padding: 2rem;
+  }
+
+  .roles {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 80%;
+  }
+}
+/* === style-administrativo.css === */
+/* Ya definido arriba */
+
+/* ================= HEADER ================= */
+header {
+  background: linear-gradient(135deg, #85191A 0%, #D93036 100%);
+  box-shadow: 0 4px 10px var(--color-sombra);
+  padding: 2rem 0;
+}
+
+.contenedor-header {
+  max-width: 120rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.titulo {
+
+  font-size: 3rem;
+  color: var(--color-texto);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.titulo span {
+  color: var(--color-blanco);
+  background-color: var(--color-acento);
+  padding: 0.3rem 0.8rem;
+  border-radius: 1rem;
+}
+
+/* ================= NAV ================= */
+.barra-navegacion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.navegacion-principal a {
+  text-decoration: none;
+  color: var(--color-texto);
+  font-weight: 600;
+  /* 🎨 BOTÓN NAVEGACIÓN - Color: Rojo rgb(220 38 38) */
+  background-color: rgb(220 38 38); /* 🔴 Rojo brillante */
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.navegacion-principal a:hover {
+  /* 🎨 BOTÓN NAVEGACIÓN HOVER - Color: Rojo oscuro */
+  background-color: rgb(159 18 18); /* 🔴 Rojo más oscuro */
+  transform: translateY(-3px);
+}
+
+/* ================= MAIN ================= */
+main {
+  max-width: 1000px;
+  margin: 6rem auto;
+  padding: 2.5rem;
+  background-color: var(--color-blanco);
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(211, 188, 61, 0.08);
+}
+
+/* ================= LOGIN ================= */
+#login-section {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+#login-section h2 {
+  color: rgb(220 38 38); /* 🔴 Rojo brillante */
+  font-size: 2.4rem;
+  margin-bottom: 2rem;
+}
+
+#login-form {
+  max-width: 500px;
+  margin: 0 auto;
+  background: var(--color-fondo);
+  padding: 2rem 3rem;
+  border-radius: 15px;
+  border: 2px solid var(--color-principal);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  text-align: left;
+}
+
+#login-form label {
+  display: block;
+  font-weight: 600;
+  margin-top: 1.5rem;
+}
+
+#login-form input[type="text"],
+#login-form input[type="password"] {
+  width: 100%;
+  padding: 1.2rem 1.5rem;
+  border-radius: 12px;
+  border: 2px solid var(--color-principal);
+  margin-top: 0.8rem;
+  font-size: 1.6rem;
+  background-color: var(--color-blanco);
+  transition: all 0.3s ease;
+}
+
+#login-form input:focus {
+  outline: none;
+  border-color: var(--color-acento);
+  box-shadow: 0 0 10px rgba(255, 214, 165, 0.5);
+}
+
+#login-form .boton.enviar {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1.2rem;
+  /* 🎨 LOGIN BOTÓN ENVIAR - Color: Rojo rgb(220 38 38) */
+  background-color: rgb(220 38 38); /* 🔴 Rojo brillante */
+  color: var(--color-texto);
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+#login-form .boton.enviar:hover {
+  /* 🎨 LOGIN BOTÓN HOVER - Color: Rojo oscuro */
+  background-color: rgb(159 18 18); /* 🔴 Rojo más oscuro */
+  transform: translateY(-4px);
+}
+
+/* ================= PANEL ADMIN ================= */
+#panel-section {
+  display: none;
+  text-align: center;
+}
+
+#panel-section h2 {
+  color: rgb(220 38 38); /* 🔴 Rojo brillante */
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.roles {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+/* 🎨 BOTÓN GENÉRICO - Se combina con clases pastel-rosa o pastel-azul */
+.btn {
+  display: inline-block;
+  padding: 1.2rem 3rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.pastel-rosa {
+  /* 🎨 BOTÓN ROSA - Color: Rojo rgb(220 38 38) */
+  background-color: rgb(220 38 38); /* 🔴 Rojo brillante */
+  color: var(--color-texto);
+}
+
+.pastel-azul {
+  /* 🎨 BOTÓN AZUL - Color: Rojo rgb(220 38 38) */
+  background-color: rgb(220 38 38); /* 🔴 Rojo brillante */
+  color: var(--color-texto);
+}
+
+.btn:hover {
+  /* 🎨 BOTÓN HOVER - Color: Rojo oscuro */
+  background-color: rgb(159 18 18); /* 🔴 Rojo más oscuro */
+  transform: translateY(-3px);
+}
+
+/* ================= SUBSECCIONES ================= */
+#subseccion {
+  margin-top: 3rem;
+  text-align: left;
+}
+
+#subseccion h3 {
+  color: rgb(220 38 38); /* 🔴 Rojo brillante */
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+#subseccion form {
+  background: var(--color-fondo);
+  padding: 2rem;
+  border-radius: 15px;
+  border: 2px solid var(--color-principal);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+#subseccion label {
+  display: block;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+#subseccion input,
+#subseccion select {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 12px;
+  border: 2px solid var(--color-principal);
+  margin-top: 0.5rem;
+  background-color: var(--color-blanco);
+}
+
+#subseccion .boton.enviar {
+  display: block;
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1.2rem;
+  font-size: 1.7rem;
+  font-weight: 600;
+  background-color: var(--color-acento);
+  color: var(--color-texto);
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#subseccion .boton.enviar:hover {
+  background-color: var(--color-hover);
+  transform: translateY(-4px);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  main {
+    margin: 3rem 1rem;
+    padding: 2rem;
+  }
+
+  #login-form {
+    padding: 1.6rem;
+  }
+
+  .roles {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 80%;
+  }
+}
+
+/* ================= BOTÓN SOCIAL FLOTANTE ================= */
+.social-fab {
+  position: fixed;
+  right: 13.0rem;
+  bottom: 3rem;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  pointer-events: auto;
+}
+
+.fab-main {
+  width: 9rem;
+  height: 9rem;
+  border-radius: 50%;
+  background: var(--color-principal);
+  border: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 6.0rem;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.fab-main:focus,
+.fab-main:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.18);
+}
+
+.social-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transform: translateY(8px) scale(0.98);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+
+/* Mostrar enlaces al pasar el cursor sobre el contenedor (hover) o cuando recibe foco (accesibilidad) */
+.social-fab:hover .social-links,
+.social-fab:focus-within .social-links {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1rem;
+  background: var(--color-blanco);
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--color-texto);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  font-weight: 600;
+  transition: transform 0.12s ease, background 0.12s ease;
+}
+
+.social-links a:hover {
+  transform: translateX(-4px);
+  background: var(--color-acento);
+}
+
+/* Colores por red (opcionales) */
+.social-links a.facebook { color: #1877F2; }
+.social-links a.instagram { color: #E1306C; }
+.social-links a.twitter { color: #1DA1F2; }
+.social-links a.whatsapp { color: #25D366; }
+
+@media (max-width: 480px) {
+  .social-fab { right: 1rem; bottom: 1rem; }
+  .fab-main { width: 4.8rem; height: 4.8rem; font-size: 1.8rem; }
+  .social-links a { padding: 0.5rem 0.8rem; font-size: 1.4rem; }
+}
+
+/* ================= ESTILOS PANEL ADMIN ================= */
+/* Contenedor principal del panel */
+.admin-grid {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* Barra lateral (sidebar) */
+.admin-sidebar {
+  min-width: 22rem;
+  background: var(--color-blanco);
+  border-radius: 1.2rem;
+  padding: 1.6rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.03);
+}
+
+.admin-sidebar h2 {
+  margin: 0 0 0.8rem 0;
+  color: var(--color-principal);
+  font-size: 2rem;
+}
+
+.admin-sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* Botones del menú lateral */
+.admin-nav.btn {
+  display: inline-block;
+  width: 100%;
+  text-align: left;
+  padding: 0.9rem 1rem;
+  border-radius: 8px;
+  background: transparent;
+  border: 2px solid transparent;
+  color: var(--color-texto);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s ease, transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+/* Estado hover/activo del nav lateral */
+.admin-nav.btn:hover {
+  background: rgba(168,218,220,0.14); /* ligero tono del color principal */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.04);
+}
+
+.admin-nav.btn.active,
+.admin-nav.btn:focus {
+  background: var(--color-principal);
+  color: var(--color-blanco);
+  border-color: rgba(0,0,0,0.02);
+}
+
+/* Contenido principal del panel */
+.admin-content {
+  flex: 1;
+}
+
+/* Secciones internas */
+.admin-section {
+  margin-bottom: 2rem;
+  background: transparent; /* deja la tarjeta interior con fondo blanco según elementos hijos */
+}
+
+/* Tarjetas de resumen (dashboard) */
+.admin-content > #dashboard article {
+  padding: 1.2rem;
+  border-radius: 10px;
+  background: var(--color-blanco);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.03);
+}
+
+.admin-content > #dashboard article h3 {
+  margin: 0 0 0.6rem 0;
+  font-size: 1.4rem;
+}
+
+.admin-content > #dashboard article p {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+/* Tabla de usuarios */
+#tabla-usuarios {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.4rem;
+}
+
+#tabla-usuarios thead th {
+  text-align: left;
+  padding: 0.8rem 0.6rem;
+  font-weight: 700;
+  color: var(--color-texto);
+  border-bottom: 2px solid rgba(0,0,0,0.06);
+}
+
+#tabla-usuarios tbody td {
+  padding: 0.8rem 0.6rem;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  vertical-align: middle;
+}
+
+#tabla-usuarios tbody tr:hover {
+  background: rgba(168,218,220,0.03);
+}
+
+/* Formularios en panel */
+#form-curso, #form-config, #login-form {
+  width: 100%;
+  background: var(--color-blanco);
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.04);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+}
+
+#form-curso label,
+#form-config label,
+#login-form label {
+  display: block;
+  font-weight: 600;
+  margin-top: 0.6rem;
+  margin-bottom: 0.3rem;
+}
+
+/* Lista de cursos */
+#lista-cursos {
+  margin: 0.6rem 0 0 1rem;
+  padding: 0;
+  list-style: disc;
+  font-size: 1.4rem;
+}
+
+/* Botones dentro del panel (si quieres un estilo alternativo) */
+.admin-action {
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+/* Contadores */
+#count-students, #count-courses, #count-admins {
+  display: block;
+  font-size: 2.4rem;
+  font-weight: 800;
+}
+
+/* Responsividad */
+@media (max-width: 992px) {
+  .admin-grid {
+    gap: 1rem;
+  }
+  .admin-sidebar {
+    min-width: 18rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-grid {
+    flex-direction: column;
+  }
+  .admin-sidebar {
+    order: 2;
+    width: 100%;
+    min-width: auto;
+  }
+  .admin-content {
+    order: 1;
+    width: 100%;
+  }
+
+  /* Ajustes para tablas en móvil */
+  #tabla-usuarios thead {
+    display: none;
+  }
+  #tabla-usuarios tbody td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  #tabla-usuarios tbody tr {
+    margin-bottom: 0.8rem;
+    border-bottom: 1px dashed rgba(0,0,0,0.06);
+  }
+}
+/* ======== CONTENEDOR GENERAL DE CADA CURSO ======== */
+.curso-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    margin: 3rem auto;
+    max-width: 1000px;
+    padding: 1.5rem;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* ======== COLUMNA DEL TEXTO ======== */
+.curso-texto {
+    flex: 1;
+}
+
+.curso-texto h3 {
+    color: #000000; /* rosado de tu paleta */
+    font-size: 1.6rem;
+}
+
+.curso-texto p {
+    line-height: 1.6;
+    color: #444;
+}
+
+/* ======== COLUMNA DE LA IMAGEN ======== */
+.curso-img {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.curso-img img {
+    width: 100%;
+    max-width: 430px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+/* ======== RESPONSIVO PARA CELULAR ======== */
+@media (max-width: 768px) {
+    .curso-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .curso-img img {
+        max-width: 330px;
+    }
+}
+/* 🎨 Estilos generales */
+main {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+  font-family: "Poppins", sans-serif;
+}
+
+.titulo-seccion {
+  text-align: center;
+  font-size: 2.2rem;
+  margin: 2.5rem 0;
+  color: #333;
+  font-weight: 700;
+}
+
+/* =================== TARJETAS GENERALES =================== */
+.card {
+  background: #ffffff;
+  padding: 1.8rem;
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* =================== SERVICIOS =================== */
+.servicios {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+/* =================== IDIOMAS =================== */
+.idiomas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.idioma-card {
+  background: linear-gradient(135deg, #b8e9ff, #e6d8ff);
+  padding: 2rem;
+  text-align: center;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  transition: transform .3s, box-shadow .3s;
+}
+
+.idioma-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+}
+
+/* =================== SEDES =================== */
+.sedes {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+

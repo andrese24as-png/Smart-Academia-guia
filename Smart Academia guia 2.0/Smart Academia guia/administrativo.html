@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AulaBot - Estudiante</title>
+<link rel="icon" type="image/png" href="img/icono1.png">
+  <link rel="preload" href="css/normalize.css" as="style">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="preload" href="css/style.css" as="style">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <header>
+    <div class="contenedor-header">
+      <h1 class="titulo">
+        AulaBot <span>Área del Administrador</span>
+      </h1>
+      <div class="barra-navegacion">
+        <nav class="navegacion-principal">
+          <a href="index.html">Inicio</a>
+          <a href="cursos.html">Cursos</a>
+          <a href="nosotros.html">Nosotros</a>
+          <a href="inicioSesion.html">Cerrar Sesión</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="contenido-principal">
+    <!-- =================== INICIO DE SESIÓN =================== -->
+    <section class="bienvenida" id="login">
+      <h2>Inicio de <span>Sesión</span></h2>
+      <p>Accede a tu cuenta de Administrador.</p>
+
+      <form class="formulario">
+        <label for="usuario">Usuario</label>
+        <input type="text" id="usuario" placeholder="Ingresa tu usuario">
+
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" placeholder="Ingresa tu contraseña">
+
+        <button type="button" class="btn pastel-azul" onclick="iniciarSesion()">Ingresar</button>
+      </form>
+    </section>
+
+    <!-- =================== PANEL DEL ADMINSTRADOR =================== -->
+
+    <section class="bienvenida" id="panel" style="display: none;">
+      <h2>Bienvenido, <span id="nombreEstudiante">Administrador</span></h2>
+      <p>A continuación puedes gestionar los cursos y estudiantes.</p>
+
+    <!-- =================== PANEL ADMIN (desde línea 53) =================== -->
+<main class="contenido-principal admin-panel">
+  <div class="admin-grid" style="display:flex; gap:2rem; align-items:flex-start;">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" style="min-width:220px; background:var(--color-blanco); border-radius:12px; padding:1.6rem; box-shadow:0 6px 18px rgba(0,0,0,0.06);">
+      <h2 style="margin-top:0; color:var(--color-principal);">Panel Admin</h2>
+      <nav aria-label="Administración">
+        <ul style="list-style:none; padding:0; margin:1rem 0; display:flex; flex-direction:column; gap:.6rem;">
+          <li><button class="admin-nav btn" data-target="dashboard" style="width:100%;">📊 Dashboard</button></li>
+          <li><button class="admin-nav btn" data-target="usuarios" style="width:100%;">👥 Usuarios</button></li>
+          <li><button class="admin-nav btn" data-target="cursos" style="width:100%;">📚 Cursos</button></li>
+          <li><button class="admin-nav btn" data-target="configuracion" style="width:100%;">⚙️ Configuración</button></li>
+          <li><a href="index.html" class="btn pastel-rosa" style="width:100%; text-align:center; margin-top:.6rem;">Cerrar sesión</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <section class="admin-content" style="flex:1;">
+      <!-- Dashboard -->
+      <div id="dashboard" class="admin-section" role="region">
+        <h2>Resumen rápido</h2>
+        <div style="display:flex; gap:1.2rem; flex-wrap:wrap;">
+          <article style="flex:1; min-width:160px; background:var(--color-blanco); padding:1.2rem; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.05);">
+            <h3>Estudiantes</h3>
+            <p id="count-students" style="font-size:2.2rem; margin:0.4rem 0; color:var(--color-principal);">--</p>
+          </article>
+
+          <article style="flex:1; min-width:160px; background:var(--color-blanco); padding:1.2rem; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.05);">
+            <h3>Cursos</h3>
+            <p id="count-courses" style="font-size:2.2rem; margin:0.4rem 0; color:var(--color-acento);">--</p>
+          </article>
+
+          <article style="flex:1; min-width:160px; background:var(--color-blanco); padding:1.2rem; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.05);">
+            <h3>Administradores</h3>
+            <p id="count-admins" style="font-size:2.2rem; margin:0.4rem 0; color:var(--color-secundario);">--</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- Usuarios -->
+      <div id="usuarios" class="admin-section" role="region" style="display:none;">
+        <h2>Usuarios</h2>
+
+        <div style="display:flex; gap:1rem; align-items:center; margin-bottom:1rem;">
+          <input id="buscar-usuario" type="text" placeholder="Buscar por nombre o email" style="flex:1; padding:.8rem; border-radius:8px; border:1px solid rgba(0,0,0,0.08);">
+          <button id="btn-nuevo-usuario" class="btn pastel-azul">+ Nuevo</button>
+        </div>
+
+        <div style="overflow:auto; background:var(--color-blanco); padding:1rem; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.04);">
+          <table id="tabla-usuarios" style="width:100%; border-collapse:collapse; font-size:1.4rem;">
+            <thead>
+              <tr style="text-align:left; border-bottom:2px solid rgba(0,0,0,0.06);">
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Rol</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- filas generadas por JS -->
+              <tr>
+                <td>María López</td>
+                <td>maria@example.com</td>
+                <td>Profesora</td>
+                <td>
+                  <button class="btn" onclick="alert('Ver perfil')">Ver</button>
+                  <button class="btn pastel-rosa" onclick="eliminarFila(this)">Eliminar</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Juan Pérez</td>
+                <td>juan@example.com</td>
+                <td>Estudiante</td>
+                <td>
+                  <button class="btn" onclick="alert('Ver perfil')">Ver</button>
+                  <button class="btn pastel-rosa" onclick="eliminarFila(this)">Eliminar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Cursos -->
+      <div id="cursos" class="admin-section" role="region" style="display:none;">
+        <h2>Cursos</h2>
+
+        <div style="display:flex; gap:1rem; margin-bottom:1rem; flex-wrap:wrap;">
+          <form id="form-curso" style="background:var(--color-blanco); padding:1rem; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.04); min-width:320px;">
+            <label for="curso-nombre">Nombre del curso</label>
+            <input id="curso-nombre" type="text" placeholder="Ej. Inglés básico" required style="width:100%; padding:.6rem; margin:.4rem 0; border-radius:8px;">
+
+            <label for="curso-descripcion">Descripción</label>
+            <textarea id="curso-descripcion" rows="3" placeholder="Breve descripción" style="width:100%; padding:.6rem; border-radius:8px;"></textarea>
+
+            <button type="submit" class="btn pastel-azul" style="margin-top:.6rem;">Guardar curso</button>
+          </form>
+
+          <div style="flex:1; min-width:280px; background:var(--color-blanco); padding:1rem; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.04);">
+            <h3>Lista de cursos</h3>
+            <ul id="lista-cursos" style="padding-left:1rem; margin:0.6rem 0;">
+              <li>Inglés básico</li>
+              <li>Francés intermedio</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Configuración -->
+      <div id="configuracion" class="admin-section" role="region" style="display:none;">
+        <h2>Configuración</h2>
+        <form id="form-config" style="background:var(--color-blanco); padding:1rem; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.04); max-width:560px;">
+          <label for="nombre-institucion">Nombre institución</label>
+          <input id="nombre-institucion" type="text" value="AulaBot - Academia de Idiomas" style="width:100%; padding:.6rem; margin:.4rem 0; border-radius:8px;">
+
+          <label for="telefono-contacto">Teléfono de contacto</label>
+          <input id="telefono-contacto" type="tel" value="+57 324 459 5443" style="width:100%; padding:.6rem; margin:.4rem 0; border-radius:8px;">
+
+          <button type="submit" class="btn pastel-azul">Guardar configuración</button>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <!-- Pequeño script para interacción del panel -->
+  <script>
+    (function () {
+      // Navegación de pestañas
+      const navButtons = document.querySelectorAll('.admin-nav');
+      const sections = document.querySelectorAll('.admin-section');
+      function mostrarSeccion(id) {
+        sections.forEach(s => s.style.display = (s.id === id ? '' : 'none'));
+        // marcar activo (simple)
+        navButtons.forEach(b => b.classList.toggle('active', b.dataset.target === id));
+      }
+      navButtons.forEach(btn => {
+        btn.addEventListener('click', () => mostrarSeccion(btn.dataset.target));
+      });
+
+      // Mostrar dashboard por defecto
+      mostrarSeccion('dashboard');
+
+      // Buscar usuarios (filtro simple en la tabla)
+      const inputBuscar = document.getElementById('buscar-usuario');
+      if (inputBuscar) {
+        inputBuscar.addEventListener('input', function () {
+          const q = this.value.toLowerCase();
+          const filas = document.querySelectorAll('#tabla-usuarios tbody tr');
+          filas.forEach(tr => {
+            const text = tr.textContent.toLowerCase();
+            tr.style.display = text.includes(q) ? '' : 'none';
+          });
+        });
+      }
+
+      // Eliminar fila (botón)
+      window.eliminarFila = function(btn) {
+        if (!confirm('¿Eliminar este usuario?')) return;
+        const tr = btn.closest('tr');
+        if (tr) tr.remove();
+        actualizarContadores();
+      };
+
+      // Agregar curso simple
+      const formCurso = document.getElementById('form-curso');
+      if (formCurso) {
+        formCurso.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const nombre = document.getElementById('curso-nombre').value.trim();
+          if (!nombre) return alert('Ingresa el nombre del curso');
+          const ul = document.getElementById('lista-cursos');
+          const li = document.createElement('li');
+          li.textContent = nombre;
+          ul.appendChild(li);
+          formCurso.reset();
+          actualizarContadores();
+        });
+      }
+
+      // Contadores simples (basados en filas/elementos actuales)
+      function actualizarContadores() {
+        const students = document.querySelectorAll('#tabla-usuarios tbody tr').length;
+        const courses = document.querySelectorAll('#lista-cursos li').length;
+        const admins = 1; // fijo por ahora
+        const elS = document.getElementById('count-students');
+        const elC = document.getElementById('count-courses');
+        const elA = document.getElementById('count-admins');
+        if (elS) elS.textContent = students;
+        if (elC) elC.textContent = courses;
+        if (elA) elA.textContent = admins;
+      }
+      // Inicializar contadores
+      actualizarContadores();
+
+      // Guardar configuración (simulación)
+      const formConfig = document.getElementById('form-config');
+      if (formConfig) {
+        formConfig.addEventListener('submit', function(e){
+          e.preventDefault();
+          alert('Configuración guardada (simulada).');
+        });
+      }
+
+    })();
+  </script>
+</main>
+
+      <a href="index.html" class="btn pastel-rosa" style="margin-top: 2rem;">Cerrar Sesión</a>
+    </section>
+  </main>
+
+</body>
+</html>
